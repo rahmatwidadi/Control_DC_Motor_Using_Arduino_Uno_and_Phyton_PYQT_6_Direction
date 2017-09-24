@@ -44,7 +44,7 @@ void forward()
   //motor 2
   digitalWrite (in3, HIGH);
   digitalWrite (in4, LOW);
-  analogWrite (enB, 120);
+  analogWrite (enB, 100);
 }
 
 void reverse()
@@ -56,7 +56,7 @@ void reverse()
   //motor 2
   digitalWrite (in3, LOW);
   digitalWrite (in4, HIGH);
-  analogWrite (enB, 140);
+  analogWrite (enB, 100);
 }
 
 void turn_forward_left()
@@ -80,7 +80,7 @@ void turn_forward_right()
   //motor 2
   digitalWrite (in3, HIGH);
   digitalWrite (in4, LOW);
-  analogWrite (enB, 150);
+  analogWrite (enB, 120);
 }
 
 void turn_reverse_right()
@@ -92,7 +92,7 @@ void turn_reverse_right()
   //motor 2
   digitalWrite (in3, LOW);
   digitalWrite (in4, HIGH);
-  analogWrite (enB, 150);
+  analogWrite (enB, 120);
 }
 
 void turn_reverse_left()
@@ -113,22 +113,17 @@ void loop()
   if (Serial.available()) 
   {
     int inbytes = Serial.readBytes(RXBuf,sizeof(RXBuf));
-    //int inbytes = Serial.readBytes(RXbuf,sizeof(RXbuf));
     switch (inbytes) {
       case 1:
         stay();
-        //Serial.print("Stop");
         break;
       case 2:
         forward();
-        //Serial.print("Constan Forward");
-        //delay(3000);
         break;
       case 3:
         turn_forward_right();
         delay (1000);
         forward();
-        //Serial.print("Constan Turn Rigt");
         break;
       case 4:
         turn_reverse_right();
@@ -137,23 +132,19 @@ void loop()
         break;
       case 5:
         reverse();
-        //Serial.print("Constan Backward");
         break;
       case 6:
         turn_reverse_left();
         delay (1000);
         reverse ();
-        //Serial.print("constan Turn Left");
         break;
       case 7:
         turn_forward_left();
         delay (1000);
         forward ();
-        //Serial.print("constan Turn Left");
         break;
       default:
         stay();
-        //Serial.print("Stop");
     }
   }
    
