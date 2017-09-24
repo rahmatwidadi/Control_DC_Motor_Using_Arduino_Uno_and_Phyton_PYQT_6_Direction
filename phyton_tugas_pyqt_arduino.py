@@ -12,13 +12,6 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.setupUi(self)
                 self.button_serial.clicked.connect(self.OpenSerial)
                 self.button_exit.clicked.connect(self.AppExit)
-##                self.TXdata = bytearray(1)
-##                self.button_forward.clicked.connect(self.stay);
-##                self.button_reverse.clicked.connect(self.stay);
-##                self.button_turn_forward_right.clicked.connect(self.stay);
-##                self.button_turn_forward_left.clicked.connect(self.stay);
-##                self.button_turn_reverse_right.clicked.connect(self.stay);
-##                self.button_turn_reverse_left.clicked.connect(self.stay);
                 self.button_forward.pressed.connect(self.forward)
                 self.button_forward.released.connect(self.stay)
                 self.button_reverse.pressed.connect(self.reverse)
